@@ -1,12 +1,11 @@
 import styles from "./CostItem.module.css";
-function CostItem() {
-  const costDate = new Date();
+function CostItem({ date, description, amount }) {
   return (
     <div className={styles.costItem}>
-      <div>{costDate.toLocaleString()}</div>
+      <div>{date}</div>
       <div className={styles.costItem__description}>
-        <h2>Холодильник</h2>
-        <div className={styles.costItem__price}>$999.99</div>
+        <h2>{description}</h2>
+        <div className={styles.costItem__price}>{amount}</div>
       </div>
     </div>
   );
