@@ -1,8 +1,9 @@
 import CostItem from "./CostItem";
+import styles from "./Costs.module.css";
 
 function Costs({ costs }) {
   return (
-    <div>
+    <div className={styles.costs}>
       {costs.map((cost) => {
         return <CostItem key={cost.description} {...cost} />;
       })}
