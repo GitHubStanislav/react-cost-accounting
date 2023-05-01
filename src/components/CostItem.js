@@ -1,5 +1,6 @@
 import styles from "./CostItem.module.css";
 import CostDate from "./CostDate";
+
 function CostItem({ date, description, amount }) {
   return (
     <div className={styles.costItem}>

@@ -6,7 +6,7 @@
     margin: 1rem 0;
     background-color: #bd8025;
     border-radius: 10px;
-    box-shadow: 0 2px 7px rgba(0, 0, 0, 0.25) ;
+
 }
 
 .costItem__description {
@@ -17,6 +17,7 @@
     flex-flow: column-reverse;
     justify-content: flex-start;
     flex: 1;
+
 }
 
 .costItem h2 {
