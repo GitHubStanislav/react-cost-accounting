@@ -4,6 +4,7 @@ function CostForm() {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
+
   const nameChangeHandler = (e) => {
     setName(e.target.value);
   };
