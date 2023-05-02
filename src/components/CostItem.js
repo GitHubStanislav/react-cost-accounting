@@ -1,9 +1,7 @@
 import styles from "./CostItem.module.css";
 import CostDate from "./CostDate";
-import { useState } from "react";
 
 function CostItem({ date, description, amount }) {
-  const [description, setDescription] = useState(description);
   return (
     <div className={styles.costItem}>
       <CostDate date={date} />
