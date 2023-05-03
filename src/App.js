@@ -20,10 +20,12 @@ function App() {
       amount: 99.99,
     },
   ];
-  const addCoatHandler = (cost) => {};
+  const addCostHandler = (cost) => {
+    costs.push(cost);
+  };
   return (
     <div className="App">
-      <NewCost onAddCost={addCoatHandler} />
+      <NewCost onAddCost={addCostHandler} />
       <Costs costs={costs} />
     </div>
   );
