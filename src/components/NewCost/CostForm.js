@@ -14,16 +14,30 @@ function CostForm() {
   const dateChangeHandler = (e) => {
     setDate(e.target.value);
   };
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const costData = {
+      name: name,
+      amount: amount,
+      date: new Date(date),
+    };
+    console.log(costData);
+    setName("");
+    setAmount("");
+    setDate("");
+  };
+
   return (
-    <form>
+    <form onSubmit={submitHandler}>
       <div className={styles.newCostControls}>
         <div className={styles.newCostControl}>
           <label>Назва</label>
-          <input onChange={nameChangeHandler} type="text" />
+          <input value={name} onChange={nameChangeHandler} type="text" />
         </div>
         <div className={styles.newCostControl}>
           <label>Сума</label>
           <input
+            value={amount}
             onChange={amountChangeHandler}
             type="number"
             min="0.01"
@@ -33,6 +47,7 @@ function CostForm() {
         <div className={styles.newCostControl}>
           <label>Дата</label>
           <input
+            value={date}
             onChange={dateChangeHandler}
             type="date"
             min="2020-01-01"
