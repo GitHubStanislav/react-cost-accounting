@@ -1,6 +1,6 @@
 import styles from "./CostForm.module.css";
 import { useState } from "react";
-function CostForm() {
+function CostForm({ onSaveCostData }) {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
@@ -21,7 +21,7 @@ function CostForm() {
       amount: amount,
       date: new Date(date),
     };
-    console.log(costData);
+    onSaveCostData(costData);
     setName("");
     setAmount("");
     setDate("");
