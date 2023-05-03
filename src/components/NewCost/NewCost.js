@@ -1,9 +1,13 @@
 import CostForm from "./CostForm";
 import styles from "./NewCost.module.css";
 
-function NewCost() {
+function NewCost({ onAddCost }) {
   const saveCostDataHandler = (inputCostData) => {
-    console.log(inputCostData);
+    const costData = {
+      ...inputCostData,
+      id: Math.random().toString(),
+    };
+    onAddCost(costData);
   };
   return (
     <div className={styles.newCost}>

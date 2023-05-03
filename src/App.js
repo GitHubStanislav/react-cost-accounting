@@ -20,10 +20,10 @@ function App() {
       amount: 99.99,
     },
   ];
-
+  const addCoatHandler = (cost) => {};
   return (
     <div className="App">
-      <NewCost />
+      <NewCost onAddCost={addCoatHandler} />
       <Costs costs={costs} />
     </div>
   );
