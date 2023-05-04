@@ -8,12 +8,20 @@ function Costs({ costs }) {
   const yearChangeHandler = (year) => {
     setSelectedYear(year);
   };
+  const filteredCosts = costs.filter((cost) => {
+    return cost.date.getFullYear().toString() === selectedYear;
+  });
   return (
     <div className={styles.costs}>
       <CostFilter year={selectedYear} onChangeYear={yearChangeHandler} />
-      {costs.map((cost) => {
-        return <CostItem key={cost.description} {...cost} />;
-      })}
+      {!filteredCosts.length && (
+        <p className={styles.p}>В цьому році витрат немає</p>
+      )}
+
+      {!!filteredCosts.length &&
+        filteredCosts.map((cost) => {
+          return <CostItem key={cost.id} {...cost} />;
+        })}
     </div>
   );
 }
