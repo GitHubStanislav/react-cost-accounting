@@ -17,7 +17,7 @@ function CostForm({ onSaveCostData }) {
   const submitHandler = (e) => {
     e.preventDefault();
     const costData = {
-      name: name,
+      description: name,
       amount: amount,
       date: new Date(date),
     };
@@ -53,10 +53,9 @@ function CostForm({ onSaveCostData }) {
             min="2020-01-01"
             step="2023-12-31"
           />
-          <div className={styles.newCostActions}>
-            <button type="submit">Додати витрати</button>
-          </div>
+          <div className={styles.newCostActions}></div>
         </div>
+        <button type="submit">Додати витрати</button>
       </div>
     </form>
   );
