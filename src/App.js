@@ -8,20 +8,20 @@ const INITIAL_COST = [
   {
     id: uuidv4(),
     date: new Date(2023, 2, 13),
-    description: "Fridge1",
-    amount: 9.99,
+    description: "Macbook pro",
+    amount: 800,
   },
   {
     id: uuidv4(),
     date: new Date(2023, 3, 10),
-    description: "Fridge2",
+    description: "MacBook Pro 14 дюймів",
     amount: 999.99,
   },
   {
     id: uuidv4(),
     date: new Date(2023, 4, 5),
-    description: "Fridge3",
-    amount: 99.99,
+    description: "Samsung Galaxy",
+    amount: 300,
   },
 ];
 function App() {

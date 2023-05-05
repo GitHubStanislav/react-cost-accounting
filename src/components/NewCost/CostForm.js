@@ -1,6 +1,6 @@
 import styles from "./CostForm.module.css";
 import { useState } from "react";
-function CostForm({ onSaveCostData }) {
+function CostForm({ onSaveCostData, onCancel }) {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
@@ -56,6 +56,9 @@ function CostForm({ onSaveCostData }) {
           <div className={styles.newCostActions}></div>
         </div>
         <button type="submit">Додати витрати</button>
+        <button type="button" onClick={onCancel}>
+          Відміна
+        </button>
       </div>
     </form>
   );
