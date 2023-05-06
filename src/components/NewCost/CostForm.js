@@ -4,6 +4,7 @@ function CostForm({ onSaveCostData, onCancel }) {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
+  const [placeholder, setPlaceholder] = useState("");
 
   const nameChangeHandler = (e) => {
     setName(e.target.value);
@@ -21,10 +22,14 @@ function CostForm({ onSaveCostData, onCancel }) {
       amount: amount,
       date: new Date(date),
     };
-    onSaveCostData(costData);
-    setName("");
-    setAmount("");
-    setDate("");
+    if (costData.description !== "" && costData.amount !== "") {
+      onSaveCostData(costData);
+      setName("");
+      setAmount("");
+      setDate("");
+    } else {
+      setPlaceholder("add some text...");
+    }
   };
 
   return (
@@ -32,11 +37,17 @@ function CostForm({ onSaveCostData, onCancel }) {
       <div className={styles.newCostControls}>
         <div className={styles.newCostControl}>
           <label>Назва</label>
-          <input value={name} onChange={nameChangeHandler} type="text" />
+          <input
+            placeholder={placeholder}
+            value={name}
+            onChange={nameChangeHandler}
+            type="text"
+          />
         </div>
         <div className={styles.newCostControl}>
           <label>Сума</label>
           <input
+            placeholder={placeholder}
             value={amount}
             onChange={amountChangeHandler}
             type="number"
