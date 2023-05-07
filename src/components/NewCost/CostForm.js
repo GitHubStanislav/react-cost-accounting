@@ -1,5 +1,5 @@
 import styles from "./CostForm.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function CostForm({ onSaveCostData, onCancel }) {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
@@ -28,10 +28,15 @@ function CostForm({ onSaveCostData, onCancel }) {
       setAmount("");
       setDate("");
       setPlaceholder("");
-    } else if (name.trim().length === 0 || name.includes("")) {
+    } else if (name.trim().length === 0) {
       setPlaceholder("enter some value...");
     }
   };
+  useEffect(() => {
+    if (name[0] === " ") {
+      setName("");
+    }
+  }, [name]);
 
   return (
     <form onSubmit={submitHandler}>
