@@ -17,18 +17,19 @@ function CostForm({ onSaveCostData, onCancel }) {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    const costData = {
-      description: name,
-      amount: amount,
-      date: new Date(date),
-    };
-    if (costData.description !== "" && costData.amount !== "") {
+    if (name.trim().length !== 0 && amount !== "") {
+      const costData = {
+        description: name,
+        amount: amount,
+        date: new Date(date),
+      };
       onSaveCostData(costData);
       setName("");
       setAmount("");
       setDate("");
-    } else {
-      setPlaceholder("add some text...");
+      setPlaceholder("");
+    } else if (name.trim().length === 0 || name.includes("")) {
+      setPlaceholder("enter some value...");
     }
   };
 
