@@ -17,7 +17,7 @@ function CostForm({ onSaveCostData, onCancel }) {
   };
   const submitHandler = (e) => {
     e.preventDefault();
-    if (name.trim().length !== 0 && amount !== "") {
+    if (name.trim().length !== 0 && amount !== "" && date !== "") {
       const costData = {
         description: name,
         amount: amount,
@@ -28,7 +28,7 @@ function CostForm({ onSaveCostData, onCancel }) {
       setAmount("");
       setDate("");
       setPlaceholder("");
-    } else if (name.trim().length === 0) {
+    } else {
       setPlaceholder("enter some value...");
     }
   };
@@ -42,8 +42,9 @@ function CostForm({ onSaveCostData, onCancel }) {
     <form onSubmit={submitHandler}>
       <div className={styles.newCostControls}>
         <div className={styles.newCostControl}>
-          <label>Назва</label>
+          <label htmlFor="name-input">Назва</label>
           <input
+            id="name-input"
             placeholder={placeholder}
             value={name}
             onChange={nameChangeHandler}
@@ -51,8 +52,9 @@ function CostForm({ onSaveCostData, onCancel }) {
           />
         </div>
         <div className={styles.newCostControl}>
-          <label>Сума</label>
+          <label htmlFor="amount-input">Сума</label>
           <input
+            id="amount-input"
             placeholder={placeholder}
             value={amount}
             onChange={amountChangeHandler}
@@ -62,14 +64,16 @@ function CostForm({ onSaveCostData, onCancel }) {
           />
         </div>
         <div className={styles.newCostControl}>
-          <label>Дата</label>
+          <label htmlFor="data-input">Дата</label>
           <input
+            id="data-input"
             value={date}
             onChange={dateChangeHandler}
             type="date"
             min="2020-01-01"
             step="2023-12-31"
           />
+
           <div className={styles.newCostActions}></div>
         </div>
         <button type="submit">Додати витрати</button>
