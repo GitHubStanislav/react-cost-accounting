@@ -4,7 +4,7 @@ import CostFilter from "./NewCost/CostFilter";
 import CostList from "./NewCost/CostList";
 import CostDiagram from "./CostDiagram";
 
-function Costs({ costs }) {
+function Costs({ costs, deleteCost }) {
   const [selectedYear, setSelectedYear] = useState("2023");
   const yearChangeHandler = (year) => {
     setSelectedYear(year);
@@ -17,7 +17,7 @@ function Costs({ costs }) {
     <div className={styles.costs}>
       <CostFilter year={selectedYear} onChangeYear={yearChangeHandler} />
       <CostDiagram costs={filteredCosts} />
-      <CostList filteredCosts={filteredCosts} />
+      <CostList deleteCost={deleteCost} filteredCosts={filteredCosts} />
     </div>
   );
 }

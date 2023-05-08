@@ -1,6 +1,6 @@
 import styles from "./CostList.module.css";
 import CostItem from "../CostItem";
-function CostList({ filteredCosts }) {
+function CostList({ filteredCosts, deleteCost }) {
   if (!filteredCosts.length) {
     return (
       <h2 className={styles.costListFallback}>В цьому році витрат немає</h2>
@@ -9,7 +9,7 @@ function CostList({ filteredCosts }) {
   return (
     <ul className={styles.costList}>
       {filteredCosts.map((cost) => {
-        return <CostItem key={cost.id} {...cost} />;
+        return <CostItem deleteCost={deleteCost} key={cost.id} {...cost} />;
       })}
     </ul>
   );

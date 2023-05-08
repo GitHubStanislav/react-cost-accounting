@@ -31,10 +31,13 @@ function App() {
       return [cost, ...prevCosts];
     });
   };
+  const deleteCostHandler = (id) => {
+    setCosts(costs.filter((cost) => cost.id !== id));
+  };
   return (
     <div className="App">
       <NewCost onAddCost={addCostHandler} />
-      <Costs costs={costs} />
+      <Costs deleteCost={deleteCostHandler} costs={costs} />
     </div>
   );
 }
