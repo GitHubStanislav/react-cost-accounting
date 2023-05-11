@@ -9,7 +9,7 @@ function CostList({ filteredCosts, deleteCost }) {
   return (
     <ul className={styles.costList}>
       {filteredCosts.map((cost) => {
-        return <CostItem deleteCost={deleteCost} key={cost.id} {...cost} />;
+        return <CostItem key={cost.id} {...cost} />;
       })}
     </ul>
   );

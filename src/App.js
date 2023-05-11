@@ -1,9 +1,11 @@
 import { useState } from "react";
+import React from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import Costs from "./components/Costs";
 import NewCost from "./components/NewCost/NewCost";
 
+export const CostContext = React.createContext(null);
 const INITIAL_COST = [
   {
     id: uuidv4(),
@@ -35,10 +37,12 @@ function App() {
     setCosts(costs.filter((cost) => cost.id !== id));
   };
   return (
-    <div className="App">
-      <NewCost onAddCost={addCostHandler} />
-      <Costs deleteCost={deleteCostHandler} costs={costs} />
-    </div>
+    <CostContext.Provider value={deleteCostHandler}>
+      <div className="App">
+        <NewCost onAddCost={addCostHandler} />
+        <Costs costs={costs} />
+      </div>
+    </CostContext.Provider>
   );
 }
 

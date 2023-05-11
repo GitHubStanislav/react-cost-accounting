@@ -17,7 +17,7 @@ function Costs({ costs, deleteCost }) {
     <div className={styles.costs}>
       <CostFilter year={selectedYear} onChangeYear={yearChangeHandler} />
       <CostDiagram costs={filteredCosts} />
-      <CostList deleteCost={deleteCost} filteredCosts={filteredCosts} />
+      <CostList filteredCosts={filteredCosts} />
     </div>
   );
 }

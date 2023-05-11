@@ -1,8 +1,11 @@
+import React, { useContext } from "react";
+import { CostContext } from "../App";
 import styles from "./CostItem.module.css";
 import CostDate from "./CostDate";
 import { AiTwotoneDelete } from "react-icons/ai";
 
-function CostItem({ id, date, description, amount, deleteCost }) {
+function CostItem({ id, date, description, amount }) {
+  const deleteCost = useContext(CostContext);
   const handleDeleteClick = () => {
     deleteCost(id);
   };
